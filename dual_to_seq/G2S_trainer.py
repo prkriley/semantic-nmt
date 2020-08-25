@@ -205,7 +205,7 @@ def main(_):
             vars_[var.name.split(":")[0]] = var
         saver = tf.train.Saver(vars_)
 
-        sess = tf.Session()
+        sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
         sess.run(initializer)
         if has_pretrained_model:
             print("Restoring model from " + best_path)

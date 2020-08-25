@@ -14,4 +14,5 @@ for i, line in enumerate(open(sys.argv[1],'rU')):
 fout.close()
 fref.close()
 
-os.system('/home/lsong10/ws/exp.graph_to_seq/mosesdecoder/scripts/generic/multi-bleu.perl %s.ref < %s.1best' %(sys.argv[1],sys.argv[1]))
+#os.system('/home/lsong10/ws/exp.graph_to_seq/mosesdecoder/scripts/generic/multi-bleu.perl %s.ref < %s.1best' %(sys.argv[1],sys.argv[1]))
+os.system('sacrebleu --input %s.1best %s.ref' %(sys.argv[1],sys.argv[1]))

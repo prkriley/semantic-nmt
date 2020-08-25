@@ -54,9 +54,9 @@ class ModelGraph(object):
                     word_vocab = word_vocab_enc,
                     edge_label_vocab = Edgelabel_vocab,
                     char_vocab = char_vocab,
-                    is_training = is_training, options = options)
+                    is_training = is_training, options = options, device_str = '/gpu:1')
 
-        with tf.variable_scope('src_encoder'):
+        with tf.variable_scope('src_encoder'), tf.device('/gpu:1'):
             self.src_encoder = encoder_utils.SeqEncoder(self, options,
                     word_vocab=word_vocab_enc,
                     char_vocab=char_vocab)

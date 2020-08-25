@@ -14,7 +14,7 @@ class CovCopyAttenGen:
                     state_is_tuple=True)
         self.placeholders = placeholders
 
-        with tf.variable_scope("embedding"), tf.device('/cpu:0'):
+        with tf.variable_scope("embedding"):#, tf.device('/cpu:0'):
             self.embedding = tf.get_variable('word_embedding', trainable=(options.fix_word_vec==False),
                                     initializer=tf.constant(self.vocab.word_vecs), dtype=tf.float32)
 
@@ -32,6 +32,7 @@ class CovCopyAttenGen:
         '''
         with variable_scope.variable_scope("Attention"):
             # Equation (11) in the paper
+            #TODO(prkriley): This is where you could modify the attention to let each example look at others in the batch
             state_features = linear(decoder_state, attention_vec_size, True) # [batch_size, attention_vec_size]
             state_features = tf.expand_dims(state_features, 1) # [batch_size, 1, attention_vec_size]
             all_features = encoder_features + state_features # [batch_size, passage_len, attention_vec_size]

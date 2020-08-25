@@ -343,7 +343,7 @@ if __name__ == '__main__':
         saver = tf.train.Saver(vars_)
 
         initializer = tf.global_variables_initializer()
-        sess = tf.Session()
+        sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
         sess.run(initializer)
 
         saver.restore(sess, best_path) # restore the model

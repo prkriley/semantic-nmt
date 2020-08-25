@@ -1,9 +1,9 @@
 {
-    "train_path": "data/nc-v11.tok_le50.json",
-    "test_path": "data/newstest2013.tok.json",
-    "word_vec_src_path": "data/vectors.en.st",
-    "word_vec_tgt_path": "data/vectors.de.st",
-    "suffix": "dev13_nocov_bch50_v2",
+    "train_path": "data/nc-v11.tok_le50.json_allbpe",
+    "test_path": "data/devtest/newstest2013.tok.json_allbpe",
+    "word_vec_src_path": "data/nc-v11.tok_le50_bpe.vectors.en.st",
+    "word_vec_tgt_path": "data/nc-v11.tok_le50_bpe.vectors.de.st",
+    "suffix": "nc_vanilla",
     "model_dir": "logs",
     "isLower": false,
 
